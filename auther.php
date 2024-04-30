@@ -2,7 +2,7 @@
 <body class="bg-light">
     
 <div class="container border mt-2">
-    <img src="resim.jpg" class="rounded mx-auto d-block" alt="profil resim" style="height: 350px; width: auto;">
+    <img src="images\resim.jpg" class="rounded mx-auto d-block" alt="profil resim" style="height: 350px; width: auto;">
 
     <hr>
 

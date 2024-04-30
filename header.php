@@ -1,5 +1,5 @@
 <?php
-require_once 'baglan.php';
+require_once 'netting/baglan.php';
 ?>
 <!doctype html>
 <html lang="en">
