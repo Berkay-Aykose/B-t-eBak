@@ -17,6 +17,22 @@
                     </ul>
                 </div>
 
+                <!--Alert mysql-->
+                <div>
+                <?php if (isset($_GET['durum']) && $_GET['durum'] == "yes") { ?>
+                    <div class="alert alert-success">
+                        Kayıt Başarılı
+                    </div>
+                <?php } else if (isset($_GET['durum']) && $_GET['durum'] == "no") { ?>
+                    <div class="alert alert-danger">
+                        Kayıt Başarısız
+                    </div>
+                <?php } ?>
+                </div>
+
+                    
+                    
+
                 <form action="netting/islem.php" method="POST" class="needs-validation" novalidate>
 
                     <div class="input-group mb-3">
