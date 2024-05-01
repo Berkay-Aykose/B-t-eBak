@@ -37,13 +37,13 @@
 
                     <div class="input-group mb-3">
                         <span class="input-group-text">TL</span>
-                        <input name="income_money" type="number" pattern="\d*" class="form-control" id="validationCustom05" name="income_price" required aria-label="Amount (to the nearest dollar)">
+                        <input name="income_money" type="number" pattern="\d*" class="form-control" id="validationCustom05" name="income_money" required aria-label="Amount (to the nearest dollar)">
                         <span class="input-group-text">.00</span>
                     </div>
       
                     <div class="mb-3">
                         <select class="form-select" aria-label="Default select example" name="income_category">
-                            <option value="">Gelir kategorisi seçin</option>
+                            <option disabled selected>Gelir kategorisi seçin</option>
                             <option value="Alışveriş">Alışveriş</option>
                             <option value="Gıda">Gıda</option>
                             <option value="Telefon">Telefon</option>
