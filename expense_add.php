@@ -40,17 +40,17 @@
                     <div class="mb-3">
                         <select class="form-select" aria-label="Default select example" name="expense_category">
                             <option disabled selected>Gelir kategorisi seçin</option>
-                            <option value="1">Alışveriş</option>
-                            <option value="2">Gıda</option>
-                            <option value="4">Telefon</option>
-                            <option value="5">Eğlence</option>
-                            <option value="6">Eğitim</option>
-                            <option value="7">Güzellik</option>
-                            <option value="8">Spor</option>
-                            <option value="9">Sosyal</option>
-                            <option value="10">Giyim</option>
-                            <option value="11">Araba</option>
-                            <option value="12">Evcil Hayvan</option>
+                            <option value="Alışveriş">Alışveriş</option>
+                            <option value="Gıda">Gıda</option>
+                            <option value="Telefon">Telefon</option>
+                            <option value="Eğlence">Eğlence</option>
+                            <option value="Eğitim">Eğitim</option>
+                            <option value="Güzellik">Güzellik</option>
+                            <option value="Spor">Spor</option>
+                            <option value="Sosyal">Sosyal</option>
+                            <option value="Giyim">Giyim</option>
+                            <option value="Araba">Araba</option>
+                            <option value="Evcil Hayvan">Evcil Hayvan</option>
                         </select>
                     </div>
 

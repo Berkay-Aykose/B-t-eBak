@@ -11,17 +11,32 @@
 
             <div class="col-md-12 mb-3 d-flex justify-content-center">
               <div class="d-flex justify-content-center">
-                <h2>Report</h2>
+                <h2>Portföy</h2>
               </div>
             </div>
+
+            <?php
+            $sql = $db->prepare("SELECT income_category, COUNT(*), SUM(income_money) FROM income GROUP BY income_category;");
+            $sql->execute();
+
+            while ($sqlCek = $sql->fetch(PDO::FETCH_ASSOC)) {
+                  $income_category_array[$sqlCek['income_category']] = $sqlCek['SUM(income_money)'];
+            }
+            /*
+            echo "<pre>";
+            print_r($income_category_array);
+            echo "</pre>";
+            */
+            ?>
+
 
             <div class="col-md-12 mb-3 d-flex justify-content-center">
               <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link " aria-current="page" href="#">INCOME</a>
+                  <a class="nav-link " aria-current="page" href="#">Gelir</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active " aria-current="page" href="expense_report.php">EXPENSES</a>
+                  <a class="nav-link active " aria-current="page" href="expense_report.php">Gider</a>
                 </li>
               </ul>
             </div>
@@ -40,15 +55,25 @@
       const myChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-          labels: ['market', 'fatura', 'sağlık', 'eğitim', 'test'],
+          // key=kategoriler value=değerleri
+          labels: [<?php foreach ($income_category_array as $key => $value) {
+            echo "'".$key."',";
+          }?>],
           datasets: [{
             label: '# of Votes',
-            data: ['12', '19', '3', '5', '3'],
+            data: [<?php foreach ($income_category_array as $key => $value) {
+              echo "'".$value."',";
+            } ?>],
             backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
+              '#FFCCCC',
+              '#CCCCFF',
+              '#CCFFCC',
+              '#FFFFCC',
+              '#FFDAB9',
+              '#E6E6FA',
+              '#FFB6C1',
+              '#AFEEEE',
+              '#D3D3D3',
             ],
 
             borderWidth: 1
