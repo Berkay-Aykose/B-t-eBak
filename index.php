@@ -1,31 +1,59 @@
 <?php require_once 'header.php' ?>
+
 <body class="bg-light">
+
+<?php 
+$sql = $db->prepare("SELECT * FROM income 
+                    UNION ALL
+                    SELECT * FROM expense;");
+$sql->execute();
+
+while ($sqlCek = $sql->fetch(PDO::FETCH_ASSOC)) {
+    $category[] = $sqlCek['income_category'];
+    $money[] = $sqlCek['income_money'];
+    $date[] = $sqlCek['income_timedate'];
+}
+
+/*                 
+echo "<pre>";
+print_r($category);
+print_r($money);
+print_r($date);
+echo "</pre>";
+*/
+?>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Adet</th>
+      <th scope="col">Kategori</th>
+      <th scope="col">Tutar</th>
+      <th scope="col">Tarih</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  
+    <!--veri çoğalt-->
+    <?php 
+    $bir=1;
+    for ($i=0; $i<count($date); $i++) { ?>
+        
+        <tr>
+            <th scope="row"> <?php echo $i+$bir ?> </th>
+            <td> <?php echo $category[$i] ?> </td>
+            <td> <?php echo $money[$i] ?> </td>
+            <td> <?php echo $date[$i] ?> </td>
+        </tr>
+
+    <?php 
+    }
+    ?>
+
     
-    <!--slider-->
-    <div class="container-fluid p-0" id="home">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://via.placeholder.com/300x450" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://via.placeholder.com/300x450" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://via.placeholder.com/300x450" class="d-block w-100" alt="...">
-                </div>
-            </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-
-        </div>
-    </div>
+  </tbody>
+</table>
 
 <?php require_once 'footer.php' ?>
